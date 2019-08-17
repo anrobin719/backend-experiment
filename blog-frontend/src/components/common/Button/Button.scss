@@ -1,0 +1,66 @@
+@import '../../../styles/lib/utils.scss';
+
+.button {
+    padding: .25rem .5rem;
+    font-weight: 600;
+    font-size: .9rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+
+    // default: 파란색 버튼
+    &.default {
+        background-color: $oc-blue-6;
+        &:hover {
+            background-color: $oc-blue-5;
+        }
+        &:active {
+            background-color: $oc-blue-6;
+        }
+    }
+
+    // gray: 회색 버튼
+    &.gray {
+        background-color: $oc-gray-7;
+        &:hover {
+            background-color: $oc-gray-6;
+        }
+        &:active {
+            background-color: $oc-gray-7;
+        }
+    }
+
+    // outline: 흰색 테두리 버튼
+    &.outline {
+        border: 2px solid white;
+        border-radius: 2px;
+        &:hover {
+            background-color: white;
+            color: $oc-blue-6;
+        }
+        &:active {
+            background-color: rgba(255,255,255,.85);
+            border: 2px solid rgba(255,255,255,.85);
+        }
+    }
+
+    
+    &:hover {
+        @include material-shadow(2,0.5);
+    }
+
+    &.disabled {
+        background-color: $oc-gray-4;
+        color: $oc-gray-6;
+        cursor: default;
+        &:hover, &:active {
+            box-shadow: none;
+            background-color: $oc-gray-4;
+        }
+    }
+
+    & + & {
+        margin-left: .5rem;
+    }
+}
