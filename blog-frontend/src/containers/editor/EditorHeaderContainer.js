@@ -11,9 +11,8 @@ import * as editorActions from '../../store/modules/editor';
 class EditorHeaderContainer extends Component {
   componentDidMount() {
     const { EditorActions } = this.props;
-    EditorActions.initialize(); // 에디터 초기화
+    EditorActions.initialize();
 
-    // // 쿼리 파싱
     // const { id } = queryString.parse(location.search);
     // if(id) {
     //   // id가 존재하면 포스트 불러오기
@@ -31,11 +30,9 @@ class EditorHeaderContainer extends Component {
     const post = {
       title,
       body: markdown,
-      // 태그 텍스트를 ,로 분리시키고 앞뒤 공백을 지운 후 중복되는 값을 제거한다.
       tags: tags === "" ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))]
     };
     try {
-      // id가 존재하면 editPost 호출
     //   const { id } = queryString.parse(location.search);
     //   if(id) {
     //     await EditorActions.editPost({id, ...post});
@@ -43,9 +40,6 @@ class EditorHeaderContainer extends Component {
     //     return;
     //   }
       await EditorActions.writePost(post);
-      // 페이지를 이동시킵니다. 주의: postId는 상단에서 레퍼런스를 만들지 말고
-      // 이 자리에서 this.props.postId를 조회해 주어야 합니다(현재 값을 불러오기 위함).
-      console.log(this.props.postId);
       history.push(`/post/${this.props.postId}`);
     } catch (e) {
       console.log(e);

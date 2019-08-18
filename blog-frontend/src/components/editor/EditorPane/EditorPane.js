@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './EditorPane.scss';
 import classNames from 'classnames/bind';
 
+// code mirror library
 import CodeMirror from 'codemirror';
 
 import 'codemirror/mode/markdown/markdown'; // 마크다운 문법 색상
@@ -20,7 +21,7 @@ class EditorPane extends Component {
 
     editor = null; // 에디터 ref
     codeMirror = null; // CodeMirror 인스턴스
-    cursor = null
+    cursor = null;
 
     initializeEditor = () => {
         this.codeMirror = CodeMirror(this.editor, {
