@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 
 const PostItem = ({title, body, publishedDate, tags, id}) => {
     const tagList = tags.map(
-        tag => <Link key={tag} to={`/tag/${tag}`}>#tag</Link>
+        tag => <Link key={tag} to={`/tag/${tag}`}>#{tag}</Link>
     );
 
     return (
